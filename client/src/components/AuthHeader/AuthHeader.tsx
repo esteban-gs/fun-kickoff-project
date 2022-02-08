@@ -5,27 +5,48 @@ import { Link } from 'react-router-dom';
 import useStyles from './useStyles';
 
 interface Props {
-  linkTo: string;
+  login: AuthLinks;
+  signUp: AuthLinks;
   asideText: string;
+}
+
+interface AuthLinks {
+  linkTo: string;
   btnText: string;
 }
 
-const AuthFooter = ({ linkTo, asideText, btnText }: Props): JSX.Element => {
+const AuthFooter = ({ login, signUp, asideText }: Props): JSX.Element => {
   const classes = useStyles();
 
   return (
     <Box
       p={1}
+      sx={{ boxShadow: 2 }}
       display="flex"
       justifyContent="flex-end"
       alignSelf="flex-end"
-      marginRight={5}
+      paddingRight={5}
+      paddingY={6}
+      marginBottom={12}
       className={classes.authHeader}
     >
       <Typography className={classes.accAside}>{asideText}</Typography>
-      <Button component={Link} to={linkTo} color="inherit" className={classes.accBtn} variant="contained">
-        {btnText}
-      </Button>
+      <div className={classes.buttonContainer}>
+        <Button component={Link} to={login.linkTo} color="inherit" className={classes.accBtn} variant="outlined">
+          {login.btnText}
+        </Button>
+        <span className={classes.space}></span>
+        <Button
+          component={Link}
+          to={signUp.linkTo}
+          color="primary"
+          style={{ color: 'white' }}
+          className={classes.accBtn}
+          variant="contained"
+        >
+          {signUp.btnText}
+        </Button>
+      </div>
     </Box>
   );
 };
