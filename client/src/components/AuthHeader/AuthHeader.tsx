@@ -23,15 +23,18 @@ const AuthFooter = ({ login, signUp, asideText }: Props): JSX.Element => {
       p={1}
       sx={{ boxShadow: 2 }}
       display="flex"
-      justifyContent="flex-end"
+      justifyContent="space-between"
       alignSelf="flex-end"
       paddingRight={5}
-      paddingY={6}
+      paddingY={3}
       marginBottom={12}
       className={classes.authHeader}
     >
-      <Typography className={classes.accAside}>{asideText}</Typography>
+      <div className={classes.accAside}>
+        <Typography variant="h5">LOGO</Typography>
+      </div>
       <div className={classes.buttonContainer}>
+        <Typography className={classes.accAside}>{asideText}</Typography>
         <Button component={Link} to={login.linkTo} color="inherit" className={classes.accBtn} variant="outlined">
           {login.btnText}
         </Button>
