@@ -9,6 +9,7 @@ import SignUpForm from './SignUpForm/SignUpForm';
 import AuthHeader from '../../components/AuthHeader/AuthHeader';
 import { useAuth } from '../../context/useAuthContext';
 import { useSnackBar } from '../../context/useSnackbarContext';
+import CardLink from '../../components/CardLink/CardLink';
 
 export default function Register(): JSX.Element {
   const classes = useStyles();
@@ -51,11 +52,12 @@ export default function Register(): JSX.Element {
             <Grid container>
               <Grid item xs>
                 <Typography className={classes.welcome} component="h1" variant="h5">
-                  Create an account
+                  Sign Up
                 </Typography>
               </Grid>
             </Grid>
             <SignUpForm handleSubmit={handleSubmit} />
+            <CardLink pre={`Already a member? `} link={'login'} linkString={'Login'} post=" " />
           </Box>
           <Box p={1} alignSelf="center" />
         </Box>
