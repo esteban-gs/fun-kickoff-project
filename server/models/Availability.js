@@ -11,17 +11,17 @@ const availabilitiesSchema = new mongoose.Schema({
   to: {
     type: Date
   },
-  to_day_of_week: {
+  toDayOfWeek: {
     type: Number
   },
-  from_day_of_week: {
+  fromDayOfWeek: {
     type: Number
   },
 });
 
 availabilitiesSchema.pre("save", function (next) {
-  this.from_day_of_week = this.from.getDay();
-  this.to_day_of_week = this.to.getDay();
+  this.fromDayOfWeek = this.from.getDay();
+  this.toDayOfWeek = this.to.getDay();
   next()
 })
 module.exports = Availability = mongoose.model("availability", availabilitiesSchema)

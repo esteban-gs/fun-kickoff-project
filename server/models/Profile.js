@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 const User = require('./User');
 
 const profileSchema = new mongoose.Schema({
-  first_name: {
+  firstName: {
     type: String,
     required: true,
   },
-  last_name: {
+  lastName: {
     type: String,
     required: true,
   },
