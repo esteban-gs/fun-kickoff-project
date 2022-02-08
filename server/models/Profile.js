@@ -18,12 +18,6 @@ const profileSchema = new mongoose.Schema({
     type: mongoose.Types.ObjectId,
     ref: 'User'
   },
-  availabilities: [
-    {
-      type: mongoose.Types.ObjectId,
-      ref: 'Availability'
-    }
-  ]
 });
 
 module.exports = Profile = mongoose.model("profile", profileSchema);
