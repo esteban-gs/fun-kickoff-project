@@ -30,6 +30,11 @@ This is a little description about your project.
 3. Run `npm start` to start the client side
 
 ---
+### e2e Test
+1. Go into the server directory `cd server`
+2. Create a `.env` file in the `server/test` directory and copy the contents of the `server/sample.env` file here
+3. Mongo should be running in your local environment
+4. Run `npm run test` to start the e2e test.
 
 ### Demo
 
