@@ -1,27 +1,52 @@
 const mongoose = require('mongoose');
 
+
+const time = new mongoose.Schema({
+  hour: {
+    type: Number,
+    min: 0,
+    max: 23
+  },
+  minute: {
+    type: Number,
+    min: 0,
+    max: 60,
+    default: 0
+  },
+})
+
+const range = new mongoose.Schema({
+  from: {
+    type: time,
+  },
+  to: {
+    type: time,
+  }
+});
+
 const availabilitiesSchema = new mongoose.Schema({
   profile: {
     type: mongoose.Types.ObjectId,
     ref: 'Profile'
   },
-  from: {
-    type: Date
+  monday: {
+    type: range,
   },
-  to: {
-    type: Date
+  tuesday: {
+    type: range,
   },
-  toDayOfWeek: {
-    type: Number
+  wednesday: {
+    type: range,
   },
-  fromDayOfWeek: {
-    type: Number
+  thursday: {
+    type: range,
+  },
+  friday: {
+    type: range,
+  },
+  saturday: {
+    type: range,
   },
 });
 
-availabilitiesSchema.pre("save", function (next) {
-  this.fromDayOfWeek = this.from.getDay();
-  this.toDayOfWeek = this.to.getDay();
-  next()
-})
 module.exports = Availability = mongoose.model("availability", availabilitiesSchema)
