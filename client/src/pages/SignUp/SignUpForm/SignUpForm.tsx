@@ -51,11 +51,18 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
     >
       {({ handleSubmit, handleChange, values, touched, errors, isSubmitting }) => (
         <form onSubmit={handleSubmit} className={classes.form} noValidate>
+          <label>
+            {
+              <Typography className={classes.label} component="span" variant="label">
+                Username
+              </Typography>
+            }
+          </label>
           <TextField
             id="username"
-            label={<Typography className={classes.label}>Username</Typography>}
+            placeholder="Your username"
             fullWidth
-            margin="normal"
+            margin="dense"
             InputLabelProps={{
               shrink: true,
             }}
@@ -70,11 +77,18 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
             value={values.username}
             onChange={handleChange}
           />
+          <label>
+            {
+              <Typography className={classes.label} component="span" variant="label">
+                E-mail address
+              </Typography>
+            }
+          </label>
           <TextField
             id="email"
-            label={<Typography className={classes.label}>E-mail address</Typography>}
+            placeholder="Your email"
             fullWidth
-            margin="normal"
+            margin="dense"
             InputLabelProps={{
               shrink: true,
             }}
@@ -88,13 +102,20 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
             value={values.email}
             onChange={handleChange}
           />
+          <label>
+            {
+              <Typography className={classes.label} component="span" variant="label">
+                Password
+              </Typography>
+            }
+          </label>
           <TextField
             id="password"
-            label={<Typography className={classes.label}>Password</Typography>}
+            placeholder="Create password"
             fullWidth
-            margin="normal"
+            margin="dense"
             InputLabelProps={{
-              shrink: true,
+              shrink: false,
             }}
             InputProps={{
               classes: { input: classes.inputs },
@@ -109,7 +130,7 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
 
           <Box textAlign="center" marginTop={5}>
             <Button type="submit" size="large" variant="contained" color="primary" className={classes.submit}>
-              {isSubmitting ? <CircularProgress style={{ color: 'white' }} /> : 'Create'}
+              {isSubmitting ? <CircularProgress style={{ color: 'white' }} /> : 'Sign Up'}
             </Button>
           </Box>
         </form>

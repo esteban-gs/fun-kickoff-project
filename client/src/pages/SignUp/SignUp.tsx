@@ -9,6 +9,7 @@ import SignUpForm from './SignUpForm/SignUpForm';
 import AuthHeader from '../../components/AuthHeader/AuthHeader';
 import { useAuth } from '../../context/useAuthContext';
 import { useSnackBar } from '../../context/useSnackbarContext';
+import CardLink from '../../components/CardLink/CardLink';
 
 export default function Register(): JSX.Element {
   const classes = useStyles();
@@ -37,29 +38,37 @@ export default function Register(): JSX.Element {
   };
 
   return (
-    <Grid container component="main" className={classes.root}>
-      <Grid item xs={12} sm={8} md={7} elevation={6} component={Paper} square>
-        <Box
-          display="flex"
-          justifyContent="space-between"
-          alignItems="flex-start"
-          flexDirection="column"
-          className={classes.authWrapper}
-        >
-          <AuthHeader linkTo="/login" asideText="Already have an account?" btnText="Login" />
-          <Box width="100%" maxWidth={450} p={3} alignSelf="center">
-            <Grid container>
-              <Grid item xs>
-                <Typography className={classes.welcome} component="h1" variant="h5">
-                  Create an account
-                </Typography>
+    <>
+      <AuthHeader
+        login={{ linkTo: 'login', btnText: 'Login' }}
+        signUp={{ linkTo: 'signup', btnText: 'Sign Up' }}
+        asideText="Become a sitter"
+      />
+
+      <Grid container component="main" className={classes.root}>
+        <Grid item xs={12} sm={8} md={7} elevation={6} component={Paper} square>
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="flex-start"
+            flexDirection="column"
+            className={classes.authWrapper}
+          >
+            <Box width="100%" maxWidth={450} p={3} alignSelf="center">
+              <Grid container>
+                <Grid item xs>
+                  <Typography className={classes.welcome} component="h1" variant="h5">
+                    Sign Up
+                  </Typography>
+                </Grid>
               </Grid>
-            </Grid>
-            <SignUpForm handleSubmit={handleSubmit} />
+              <SignUpForm handleSubmit={handleSubmit} />
+              <CardLink pre={`Already a member? `} link={'login'} linkString={'Login'} post=" " />
+            </Box>
+            <Box p={1} alignSelf="center" />
           </Box>
-          <Box p={1} alignSelf="center" />
-        </Box>
+        </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 }

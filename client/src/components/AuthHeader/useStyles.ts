@@ -2,19 +2,18 @@ import { Theme } from '@mui/material/styles';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme: Theme) => ({
-  authHeader: {
-    alignItems: 'center',
-    flexWrap: 'wrap',
-  },
+  authHeader: {},
   accAside: {
     fontSize: 14,
     color: '#b0b0b0',
-    fontWeight: 400,
+    fontWeight: 900,
     textAlign: 'center',
     whiteSpace: 'nowrap',
     display: 'flex',
     alignItems: 'center',
     padding: '1rem',
+    textDecoration: 'underline',
+    textTransform: 'uppercase',
   },
   accBtn: {
     width: 170,
@@ -24,6 +23,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: '#ffffff',
     color: '#3a8dff',
     boxShadow: 'none',
+  },
+  buttonContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+  },
+  space: {
+    paddingRight: '10px',
   },
 }));
 

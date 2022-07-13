@@ -1,3 +1,7 @@
+:root {
+  --primary: #f14140;
+}
+
 .App {
   text-align: center;
 }
@@ -21,6 +25,31 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.MuiFormControl-root {
+  margin-top: 0 !important;
+  margin-bottom: 10px !important;
+}
+
+/* unvisited link */
+a:link {
+  color: var(--primary);
+}
+
+/* visited link */
+a:visited {
+  color: var(--primary);
+}
+
+/* mouse over link */
+a:hover {
+  color: var(--primary);
+}
+
+/* selected link */
+a:active {
+  color: var(--primary);
 }
 
 @keyframes App-logo-spin {
